@@ -29,6 +29,9 @@ Releed töötavad ka ilma internetiühendusta, lihtsalt ei saa uut programmi.
 *  USB Wifi moodul (Kui on vaja juhtmevaba ühendust)
 
 #Skeem
+ ![GPIO](http://www.hobbytronics.co.uk/image/data/tutorial/raspberry-pi/gpio-pinout-rev2.jpg)
+
+
 
 #Instaleerimine
 
