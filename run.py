@@ -7,18 +7,17 @@ from RPi import GPIO
 import time
 
 # TODO: Move to configuration file
-pin_relee=18
-pin_pump=16
-pin_lamp=7
+
+pins={"relee1":7,"relee2":11,"relee3":13,"relee4":15,"relee5":12,"relee6":16,"relee7":18,"relee8":22}
 
 GPIO.cleanup()
 
 GPIO.setmode(GPIO.BOARD)
-for pin in [pin_relee, pin_pump, pin_lamp]:
+for pin in pins.values():
   GPIO.setup(pin, GPIO.OUT)
 
 cal = Calendar.from_ical(open('basic.ics','rb').read())
-
+events = []
 for component in cal.walk():
   if isinstance(component, Event):
     #FIXME: Check that STATUS is CONFIRMED
@@ -29,9 +28,12 @@ for component in cal.walk():
     now = now.replace(tzinfo=pytz.utc)
     active = (now >= start and now < end)
     print "Event %s start at %s, end at %s and is currently %s" % (summary, start, end, "ACTIVE" if active else "DISABLED")
-    if summary == "relee":
-      GPIO.output(pin_relee, 1 if active else 0)
-    if summary == "pump":
-      GPIO.output(pin_pump, 1 if active else 0)
-    if summary == "lamp":
-      GPIO.output(pin_lamp, 1 if active else 0)
+    if active:
+    	events.append(summary)
+
+
+for name in pins:
+	if name in events:
+		GPIO.output(pins[name], 1)
+	else:
+		GPIO.output(pins[name], 0)
