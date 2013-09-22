@@ -8,6 +8,7 @@ Releedega on võimalik juhtida erinevaid elektrilisi seademid. Releesi juhib Ras
 Kasutatakse 8 releega valmis plokki. Igale releele saab määrata nimetuse.
 Google kalendrisse koostad uue kalendri ja selle privaatse ical aadressi sisestad raspberrysse.
 Kui kalenrdisse sisestad sündmuse siis pealkirjaks paned releele määratud nimetuse. See relee lülitatakse selleks ajaks sisse kui sündmus on aktiivne.
+Programm töötleb iCal formaadis icl faili, seega on võimalik kasutada ükskõik millist muud kalendrit mis tunnistab ical formaati.
 
 #Tarkvara
 Programm koosneb kahest etapist.
@@ -27,6 +28,7 @@ Releed töötavad ka ilma internetiühendusta, lihtsalt ei saa uut programmi.
 *  Toiteadapter 5V (Raspberry jaoks)
 *  Toiteadapter 12V (Releede jaoks)
 *  USB Wifi moodul (Kui on vaja juhtmevaba ühendust)
+*  Ühenduskaablid
 
 #Skeem
  ![GPIO](http://www.hobbytronics.co.uk/image/data/tutorial/raspberry-pi/gpio-pinout-rev2.jpg)
@@ -35,14 +37,25 @@ Releed töötavad ka ilma internetiühendusta, lihtsalt ei saa uut programmi.
 
 #Instaleerimine
 
+Klooni repost kood. Lisa vajadusel vajalikud pythoni lisad GPIO ja icalendar ja pytz
+
 #Konfiguratsioon
 
-url = [google calender ical aadress]
+Releede nimetused ja kontaktide numbrid on failis run.py Kasutatakse plaadi numbreid.
 
-pin7 = lamp
+pins={"relee1":7,"relee2":11,"relee3":13,"relee4":15,"relee5":12,"relee6":16,"relee7":18,"relee8":22}
 
-pin11 = pump
+iCalenderi faili seaded on kirjas start.sh 
 
-........
+Allalaaditud kalenrdi faili nimi peab olema basic.ics
+
+Lisa root crontabi uus kirje
+
+crontab -e
+
+* * * * * /home/pi/relee/start.sh
 
 #Käivitamine
+Crontabis käivitatakse script automaatselt iga minuti järel.
+
+Vaata et failidel oleks käivitusõigus. Käivitada tuleb root õigustes.
