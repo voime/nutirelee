@@ -31,10 +31,11 @@ Releed töötavad ka ilma internetiühendusta, lihtsalt ei saa uut programmi.
 *  Ühenduskaablid
 
 #Skeem
+ ![Kalender](/nutirelee_cal.jpg)
+ ![Seade](/nutirelee.jpg)
+
  ![GPIO](http://www.hobbytronics.co.uk/image/data/tutorial/raspberry-pi/gpio-pinout-rev2.jpg)
-
-
-
+ 
 #Instaleerimine
 
 Klooni repost kood. Lisa vajadusel vajalikud pythoni lisad GPIO ja icalendar ja pytz
