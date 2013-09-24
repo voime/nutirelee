@@ -59,3 +59,13 @@ crontab -e
 Crontabis käivitatakse script automaatselt iga minuti järel.
 
 Vaata et failidel oleks käivitusõigus. Käivitada tuleb root õigustes.
+
+#Arendus
+* Vaja käima saada korduvad üritused
+* Teha veebiliides, kust saab häälestada ja näha statust. Vajadusel ise lülitada.
+* Teha manuaalne lülitamine. Näiteks on igale releele 1 button.
+* * Kui vajutad siis lülitab ümber (toggle) ja võtab kalendri maha.
+* * Kui hoidad peal 3 sekki siis paneb uuesti kalendri tagasi.
+* * Kui soovid nuppu ignoreerida kirjuta kalendrisse nimi suurte tähtedega.
+* Lisafeature. Juthimine e-maili, SMS-i, Twitteri vms. kaudu
+* 
